@@ -1,0 +1,2 @@
+defmodule Defconst do
+end
