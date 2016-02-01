@@ -1,12 +1,20 @@
 defmodule Defconst.Mixfile do
   use Mix.Project
 
+  @version "0.0.1"
+  @project_url "https://github.com/turbomates/defconst"
+
   def project do
     [app: :defconst,
-     version: "0.0.1",
+     version: @version,
      elixir: "~> 1.2",
+     description: "Define elixir constants with guard ability",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     package: package,
+     source_url: @project_url,
+     homepage_url: @project_url,
+     docs: [main: "README", extras: ["README.md"]],
      deps: deps]
   end
 
@@ -14,7 +22,7 @@ defmodule Defconst.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger]]
+    [applications: []]
   end
 
   # Dependencies can be Hex packages:
@@ -28,5 +36,9 @@ defmodule Defconst.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     []
+  end
+
+  defp package do
+    [links: %{"GitHub" => @project_url}]
   end
 end
